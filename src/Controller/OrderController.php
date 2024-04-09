@@ -36,6 +36,7 @@ class OrderController extends AbstractController
 
             $items[] = [
                 'name' => $product->getName(),
+                'price' => $product->getPrice(),
                 'quantity' => $item->getQuantity(),
             ];
         }
@@ -75,14 +76,16 @@ class OrderController extends AbstractController
         foreach ($cart->getItems() as $item) {
             $product = $item->getProduct();
             $items[] = [
+                'product_id' => $product->getId(),
                 'name' => $product->getName(),
+                'price' => $product->getPrice(),
                 'quantity' => $item->getQuantity(),
             ];
         }
 
         $response = [
             "cart" => [
-                "id" => $cart->getId(),
+                "cart_id" => $cart->getId(),
                 "profile" => [
                     "username" => $cart->getProfile()->getUsername(),
                 ],

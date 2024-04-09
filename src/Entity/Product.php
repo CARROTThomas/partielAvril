@@ -35,6 +35,9 @@ class Product
     #[ORM\OneToMany(targetEntity: Image::class, mappedBy: 'product', orphanRemoval: true)]
     private Collection $images;
 
+    #[ORM\Column(length: 1500)]
+    private ?string $qrcode = null;
+
     public function __construct()
     {
         $this->item = new ArrayCollection();
@@ -126,6 +129,18 @@ class Product
                 $image->setProduct(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getQrcode(): ?string
+    {
+        return $this->qrcode;
+    }
+
+    public function setQrcode(string $qrcode): static
+    {
+        $this->qrcode = $qrcode;
 
         return $this;
     }

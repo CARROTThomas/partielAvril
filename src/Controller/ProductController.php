@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Product;
 use App\Form\ProductType;
 use App\Repository\ProductRepository;
+use App\Service\QrCodeService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,13 +24,18 @@ class ProductController extends AbstractController
     }
 
     #[Route('/new', name: 'app_product_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, QrCodeService $qrCodeService, EntityManagerInterface $entityManager): Response
     {
         $product = new Product();
         $form = $this->createForm(ProductType::class, $product);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+
+            $qrcode = $qrCodeService->createQrCode($product->getName());
+            $product->setQrcode($qrcode);
+
             $entityManager->persist($product);
             $entityManager->flush();
             $images = $form->getData()->getImages();
@@ -45,6 +51,16 @@ class ProductController extends AbstractController
             'product' => $product,
             'form' => $form,
         ]);
+    }
+
+
+    #[Route('/findby/qrcode/{name}', name: 'match_qrcode_toproduct', methods: ['GET'])]
+    public function matchQrCodeToProduct(
+        ProductRepository $productRepository,
+        Product $product): Response
+    {
+        $matchingProduct = $productRepository->findOneBy(['name' => $product->getName()]);
+        return $this->json($matchingProduct, 200);
     }
 
     #[Route('/{id}', name: 'app_product_show', methods: ['GET'])]

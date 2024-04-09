@@ -29,9 +29,10 @@
                         <td>{{ product.id }}</td>
                         <td>{{ product.name }}</td>
                         <td>{{ product.price }} €</td>
-                        {% set routePath = path('app_order_add_product', {'id':product.id}) %}
-                        {% set id = product.id %}
-                        <td><img src="{{ qr_code_data_uri(routePath) }}"  alt="qr code product"/></td>
+                        <td>
+                            {% set qrCode = product.qrcode %}
+                            <img src="{{ qrCode }}" width="100px" />
+                        </td>
                         <td>
                             {% for image in product.images %}
                                 <img src="{{ vich_uploader_asset(image, 'imageFile') }}" class="" alt="" height="80px">
