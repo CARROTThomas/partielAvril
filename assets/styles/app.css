@@ -1,0 +1,56 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #484848;
+}
+
+ul, li, a {
+    list-style: none;
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    padding: 0;
+    margin: 0;
+}
+
+ul {
+    gap: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.container_route {
+    display: flex;
+    margin-left: 1em;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.route {
+    padding: .3em;
+    border-radius: 1em;
+    border: 1px solid black;
+}
+
+.url {
+    font-size: 1.5em;
+}
+
+.method {
+    padding: .5em;
+    border-radius: 10px;
+}
+.method_GET {background-color: #66c40e;}
+.method_POST {background-color: #ffff00;}
+.method_DELTE {background-color: #d00e0e;}
+.method_PUT {background-color: #09bbe3;}
+
+.login_require {color: #66c40e}
+
+

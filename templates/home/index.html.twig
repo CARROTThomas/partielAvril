@@ -1,0 +1,155 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="mt-5 mb-5">
+            <div class="">
+                <h1 class="text-light">Partiel_B2DEV_Avril</h1>
+                <hr>
+            </div>
+
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button text-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Project Description:
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            The project is a backend developed in PHP 8.2 and Symfony 7, dedicated to managing an online messaging system. It provides a platform for users to communicate with each other privately and publicly. Here is an overview of the main features: <br><br>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Documentation
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+
+                            <h2 class="text-primary mb-5">partiel.thomascarrot.com</h2>
+
+
+                            <div class="mb-5">
+                                <h3>User</h3>
+                                <hr>
+                                <div class="">
+                                    <ul>
+                                        <li class="route">
+                                            <div class="container_route">
+                                                <h4 class="url">/register</h4>
+                                                <span class="method method_POST">POST</span>
+                                            </div>
+                                        </li>
+                                        <hr>
+
+                                        <li class="route">
+                                            <div class="container_route">
+                                                <h4 class="url">/api/login_check</h4>
+                                                <span class="method method_POST">POST</span>
+                                            </div>
+                                        </li>
+                                        <hr>
+
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="mb-5">
+                                <h3>Order</h3>
+                                <hr>
+                                <div class="">
+                                    <ul>
+                                        <p class="login_require">login require</p>
+                                        <li class="route">
+                                            <div class="container_route">
+                                                <h4 class="url">/api/add/{product_id}</h4>
+                                                <span class="method method_POST">POST</span>
+                                            </div>
+                                        </li>
+                                        <p>Add product to cart</p>
+                                        <hr>
+
+                                        <p class="login_require">login require</p>
+                                        <li class="route">
+                                            <div class="container_route">
+                                                <h4 class="url">/api/order/cart</h4>
+                                                <span class="method method_GET">GET</span>
+                                            </div>
+                                        </li>
+                                        <p>show currently cart's user</p>
+                                        <hr>
+
+                                        <p class="login_require">login require</p>
+                                        <li class="route">
+                                            <div class="container_route">
+                                                <h4 class="url">/api/order/remove/{product_id}</h4>
+                                                <span class="method method_POST">POST</span>
+                                            </div>
+                                        </li>
+                                        <p>remove quantity of this 1 product / delete if 1 quantity</p>
+                                        <hr>
+
+                                        <p class="login_require">login require</p>
+                                        <li class="route">
+                                            <div class="container_route">
+                                                <h4 class="url">/api/order/payment</h4>
+                                                <span class="method method_POST">POST</span>
+                                            </div>
+                                        </li>
+                                        <p>Payment, just check and create a new order</p>
+                                        <hr>
+
+                                        <p class="login_require">login require</p>
+                                        <li class="route">
+                                            <div class="container_route">
+                                                <h4 class="url">/api/order</h4>
+                                                <span class="method method_GET">GET</span>
+                                            </div>
+                                        </li>
+                                        <p>historique of order</p>
+                                        <hr>
+
+                                        <p class="login_require">login require</p>
+                                        <li class="route">
+                                            <div class="container_route">
+                                                <h4 class="url">/api/order/show/{order_id}</h4>
+                                                <span class="method method_GET">GET</span>
+                                            </div>
+                                        </li>
+                                        <p>Show order</p>
+                                        <hr>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Ressources
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul>
+                                <li>Qr code : </li>
+                                <li>Postman</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

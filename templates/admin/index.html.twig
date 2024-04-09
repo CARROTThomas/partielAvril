@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="mt-5">
+        <h1 class="text-light">Panel Admin</h1>
+        <h2 class="text-light">Liste des éléments à modifier/ajouter/affiché/supprimé</h2>
+        <hr>
+        <div class="mt-5">
+            <div class="d-flex align-items-center justify-content-start gap-3">
+                <div class="border border-light rounded p-5">
+                    <h3 class="text-light text-center">Produits</h3>
+                    <a class="btn btn-primary" href="{{ path('app_product_index') }}">show products</a>
+                </div>
+                <!-- Add des élément au panel admin -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
