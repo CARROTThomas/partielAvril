@@ -53,7 +53,6 @@ class ProductController extends AbstractController
         ]);
     }
 
-
     #[Route('/findby/qrcode/{name}', name: 'match_qrcode_toproduct', methods: ['GET'])]
     public function matchQrCodeToProduct(
         ProductRepository $productRepository,
