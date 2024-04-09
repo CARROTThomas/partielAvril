@@ -63,13 +63,15 @@ class OrderController extends AbstractController
         return $this->json('Order deleted successfully', 200);
     }
 
-    #[Route('/show/cart', name: 'app_cart')]
+    #[Route('/cart', name: 'app_cart')]
     public function cart(): Response
     {
-        $cart = $this->getUser()->getProfile()->getCart();
+        $profile = $this->getUser()->getProfile();
+        $cart = $profile->getCart();
 
         if (!$cart) {
-            return $this->json("No cart");
+            $cart = new Cart();
+            $cart->setProfile($profile);
         }
 
         $items = [];

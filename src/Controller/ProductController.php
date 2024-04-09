@@ -54,11 +54,12 @@ class ProductController extends AbstractController
     }
 
     #[Route('/findby/qrcode/{name}', name: 'match_qrcode_toproduct', methods: ['GET'])]
-    public function matchQrCodeToProduct(ProductRepository $productRepository, Product $product): Response
+    public function matchQrCodeToProduct(ProductRepository $productRepository, string $name): Response
     {
-        $matchingProduct = $productRepository->findOneBy(['name' => $product->getName()]);
-        return $this->json($matchingProduct, 200);
+        $matchingProduct = $productRepository->findOneBy(['name' => $name]);
+        return $this->json($matchingProduct->getId(), 200);
     }
+
 
     #[Route('/{id}', name: 'app_product_show', methods: ['GET'])]
     public function show(Product $product): Response
