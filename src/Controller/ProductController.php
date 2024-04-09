@@ -32,6 +32,11 @@ class ProductController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($product);
             $entityManager->flush();
+            $images = $form->getData()->getImages();
+
+            foreach ($images as $image) {
+                $image->setProduct($product);
+            }
 
             return $this->redirectToRoute('app_product_index', [], Response::HTTP_SEE_OTHER);
         }

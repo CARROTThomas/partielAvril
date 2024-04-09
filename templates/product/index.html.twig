@@ -19,6 +19,7 @@
                     <th>Name</th>
                     <th>Price</th>
                     <th>QR Code</th>
+                    <th>Images</th>
                     <th>actions</th>
                 </tr>
                 </thead>
@@ -32,8 +33,14 @@
                         {% set id = product.id %}
                         <td><img src="{{ qr_code_data_uri(routePath) }}"  alt="qr code product"/></td>
                         <td>
+                            {% for image in product.images %}
+                                <img src="{{ vich_uploader_asset(image, 'imageFile') }}" class="" alt="" height="80px">
+                            {% endfor %}
+                        </td>
+                        <td>
                             <a class="btn btn-primary" href="{{ path('app_product_show', {'id': product.id}) }}">show</a>
                             <a class="btn btn-warning" href="{{ path('app_product_edit', {'id': product.id}) }}">edit</a>
+                            <a href="{{ path('app_image', {id:product.id}) }}" class="btn btn-success ">manage pictures</a>
                         </td>
                     </tr>
                 {% else %}
