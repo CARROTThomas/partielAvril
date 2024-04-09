@@ -63,64 +63,16 @@
                             </div>
 
                             <div class="mb-5">
-                                <h3>Order</h3>
-                                <hr>
                                 <div class="">
                                     <ul>
-                                        <p class="login_require">login require</p>
-                                        <li class="route">
-                                            <div class="container_route">
-                                                <h4 class="url">/api/add/{product_id}</h4>
-                                                <span class="method method_POST">POST</span>
-                                            </div>
-                                        </li>
-                                        <p>Add product to cart</p>
+
+                                        <h3>Order</h3>
                                         <hr>
 
                                         <p class="login_require">login require</p>
                                         <li class="route">
                                             <div class="container_route">
-                                                <h4 class="url">/api/order/cart</h4>
-                                                <span class="method method_GET">GET</span>
-                                            </div>
-                                        </li>
-                                        <p>show currently cart's user</p>
-                                        <hr>
-
-                                        <p class="login_require">login require</p>
-                                        <li class="route">
-                                            <div class="container_route">
-                                                <h4 class="url">/admin/product/findby/qrcode/{name}</h4>
-                                                <span class="method method_GET">GET</span>
-                                            </div>
-                                        </li>
-                                        <p>test match, return product if correct</p>
-                                        <hr>
-
-                                        <p class="login_require">login require</p>
-                                        <li class="route">
-                                            <div class="container_route">
-                                                <h4 class="url">/api/order/remove/{product_id}</h4>
-                                                <span class="method method_POST">POST</span>
-                                            </div>
-                                        </li>
-                                        <p>remove quantity of this 1 product / delete if 1 quantity</p>
-                                        <hr>
-
-                                        <p class="login_require">login require</p>
-                                        <li class="route">
-                                            <div class="container_route">
-                                                <h4 class="url">/api/order/payment</h4>
-                                                <span class="method method_POST">POST</span>
-                                            </div>
-                                        </li>
-                                        <p>Payment, just check and create a new order</p>
-                                        <hr>
-
-                                        <p class="login_require">login require</p>
-                                        <li class="route">
-                                            <div class="container_route">
-                                                <h4 class="url">/api/order</h4>
+                                                <h4 class="url">/api/orders</h4>
                                                 <span class="method method_GET">GET</span>
                                             </div>
                                         </li>
@@ -137,6 +89,76 @@
                                         <p>Show order</p>
                                         <hr>
 
+                                        <p class="login_require">login require</p>
+                                        <li class="route">
+                                            <div class="container_route">
+                                                <h4 class="url">/api/order/delete/{order_id}</h4>
+                                                <span class="method method_GET">GET</span>
+                                            </div>
+                                        </li>
+                                        <p>Show order</p>
+                                        <hr>
+
+
+
+
+                                        <h3>Cart</h3>
+                                        <hr>
+                                        <p class="login_require">login require</p>
+                                        <li class="route">
+                                            <div class="container_route">
+                                                <h4 class="url">/api/order/show/cart</h4>
+                                                <span class="method method_GET">GET</span>
+                                            </div>
+                                        </li>
+                                        <p>show currently cart's user</p>
+                                        <hr>
+
+
+
+                                        <h3>Product</h3>
+                                        <hr>
+                                        <p class="login_require">login require</p>
+                                        <li class="route">
+                                            <div class="container_route">
+                                                <h4 class="url">/api/add/{product_id}</h4>
+                                                <span class="method method_POST">POST</span>
+                                            </div>
+                                        </li>
+                                        <p>Add product to cart</p>
+                                        <hr>
+
+                                        <p class="login_require">login require</p>
+                                        <li class="route">
+                                            <div class="container_route">
+                                                <h4 class="url">/api/order/remove/{product_id}</h4>
+                                                <span class="method method_POST">POST</span>
+                                            </div>
+                                        </li>
+                                        <p>remove quantity of this 1 product / delete if 1 quantity</p>
+                                        <hr>
+
+                                        <li class="route">
+                                            <div class="container_route">
+                                                <h4 class="url">/admin/product/findby/qrcode/{name}</h4>
+                                                <span class="method method_GET">GET</span>
+                                            </div>
+                                        </li>
+                                        <p>test match, return product if correct</p>
+                                        <hr>
+
+
+                                        <h3>Payment</h3>
+                                        <hr>
+                                        <p class="login_require">login require</p>
+                                        <li class="route">
+                                            <div class="container_route">
+                                                <h4 class="url">/api/order/payment</h4>
+                                                <span class="method method_POST">POST</span>
+                                            </div>
+                                        </li>
+                                        <p>Payment, just check and create a new order</p>
+                                        <hr>
                                     </ul>
                                 </div>
                             </div>

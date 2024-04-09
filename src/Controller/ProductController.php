@@ -54,9 +54,7 @@ class ProductController extends AbstractController
     }
 
     #[Route('/findby/qrcode/{name}', name: 'match_qrcode_toproduct', methods: ['GET'])]
-    public function matchQrCodeToProduct(
-        ProductRepository $productRepository,
-        Product $product): Response
+    public function matchQrCodeToProduct(ProductRepository $productRepository, Product $product): Response
     {
         $matchingProduct = $productRepository->findOneBy(['name' => $product->getName()]);
         return $this->json($matchingProduct, 200);

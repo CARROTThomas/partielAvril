@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/api/order')]
 class OrderController extends AbstractController
 {
-    #[Route('/', name: 'app_order_get_all')]
+    #[Route('s', name: 'app_order_get_all')]
     public function index(OrderRepository $orderRepository): Response
     {
         $response = [
@@ -63,7 +63,7 @@ class OrderController extends AbstractController
         return $this->json('Order deleted successfully', 200);
     }
 
-    #[Route('/cart', name: 'app_cart')]
+    #[Route('/show/cart', name: 'app_cart')]
     public function cart(): Response
     {
         $cart = $this->getUser()->getProfile()->getCart();
